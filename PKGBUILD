@@ -1,30 +1,27 @@
 pkgname=discord
 _pkgname=Discord
-pkgver=0.0.20
+pkgver=0.0.24
 pkgrel=1
-pkgdesc="All-in-one voice and text chat for gamers that's free and secure."
+pkgdesc="All-in-one voice and text chat for gamers that is for free and secure."
 arch=('x86_64')
-url='https://discordapp.com'
+url='https://discord.com/'
 license=('custom')
+options=(!strip)
 depends=('libnotify' 'libxss' 'nspr' 'nss' 'gtk3')
 optdepends=(xdg-utils pulseaudio pulseaudio-qt)
 source=("https://dl.discordapp.net/apps/linux/${pkgver}/${pkgname}-${pkgver}.tar.gz"
-        'LICENSE.html::https://discordapp.com/terms'
-        'OSS-LICENSES.html::https://discordapp.com/licenses')
-
-sha512sums=('720bc8a8b61cbbe3566c34065f9831571da121d210e3f2876c34cb964d60bab33f8dc16f7ca758e918cd8f35a69699c0b9063782e6c95087c0baa41a6d0e7cf5'
+        "LICENSE-$pkgver.html::https://discordapp.com/terms"
+        "OSS-LICENSES-$pkgver.html::https://discordapp.com/licenses")
+sha512sums=('SKIP'
             'SKIP'
             'SKIP')
 
 prepare() {
   cd $_pkgname
-
   sed -i "s|Exec=.*|Exec=/usr/bin/$pkgname|" $pkgname.desktop
-  echo 'Path=/usr/bin' >> $pkgname.desktop
 }
 
 package() {
-  # Install the app
   install -d "$pkgdir"/opt/$pkgname
   cp -a $_pkgname/. "$pkgdir"/opt/$pkgname
 
@@ -40,7 +37,6 @@ package() {
   # setuid on chrome-sandbox
   chmod u+s "$pkgdir"/opt/$pkgname/chrome-sandbox
 
-  # Licenses
-  install -Dm 644 LICENSE.html "$pkgdir"/usr/share/licenses/$pkgname/LICENSE.html
-  install -Dm 644 OSS-LICENSES.html "$pkgdir"/usr/share/licenses/$pkgname/OSS-LICENSES.html
+  install -Dm644 LICENSE-$pkgver.html "$pkgdir"/usr/share/licenses/$pkgname/LICENSE.html
+  install -Dm644 OSS-LICENSES-$pkgver.html "$pkgdir"/usr/share/licenses/$pkgname/OSS-LICENSES.html
 }
