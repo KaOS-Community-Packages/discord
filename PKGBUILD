@@ -1,8 +1,8 @@
 pkgname=discord
 _pkgname=Discord
-pkgver=0.0.24
+pkgver=0.0.25
 pkgrel=1
-pkgdesc="All-in-one voice and text chat for gamers that is for free and secure."
+pkgdesc="All-in-one voice and text chat for gamers."
 arch=('x86_64')
 url='https://discord.com/'
 license=('custom')
