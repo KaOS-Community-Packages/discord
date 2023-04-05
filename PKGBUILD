@@ -1,6 +1,6 @@
 pkgname=discord
 _pkgname=Discord
-pkgver=0.0.25
+pkgver=0.0.26
 pkgrel=1
 pkgdesc="All-in-one voice and text chat for gamers."
 arch=('x86_64')
@@ -8,7 +8,7 @@ url='https://discord.com/'
 license=('custom')
 options=(!strip)
 depends=('libnotify' 'libxss' 'nspr' 'nss' 'gtk3')
-optdepends=(xdg-utils pulseaudio pulseaudio-qt)
+optdepends=('xdg-utils' 'pulseaudio' 'pulseaudio-qt')
 source=("https://dl.discordapp.net/apps/linux/${pkgver}/${pkgname}-${pkgver}.tar.gz"
         "LICENSE-$pkgver.html::https://discordapp.com/terms"
         "OSS-LICENSES-$pkgver.html::https://discordapp.com/licenses")
