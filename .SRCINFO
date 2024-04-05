@@ -1,0 +1,24 @@
+pkgbase = discord
+	pkgdesc = All-in-one voice and text chat for gamers.
+	pkgver = 0.0.47
+	pkgrel = 1
+	url = https://discord.com/
+	arch = x86_64
+	license = custom
+	depends = libnotify
+	depends = libxss
+	depends = nspr
+	depends = nss
+	depends = gtk3
+	optdepends = pulseaudio: PulseAudio is a featureful, general-purpose sound server
+	optdepends = pulseaudio-qt: PulseAudio QT library for volume controle in QT environment.
+	optdepends = xdg-utils: Open files
+	options = !strip
+	source = discord-0.0.47.tar.gz::https://dl.discordapp.net/apps/linux/0.0.47/discord-0.0.47.tar.gz
+	source = LICENSE-0.0.47.html::https://discord.com/terms
+	source = OSS-LICENSES-0.0.47.html::https://discord.com/licenses
+	sha512sums = SKIP
+	sha512sums = SKIP
+	sha512sums = SKIP
+
+pkgname = discord

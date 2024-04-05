@@ -1,20 +1,20 @@
 pkgname=discord
 _pkgname=Discord
-pkgver=0.0.38
+pkgver=0.0.47
 pkgrel=1
 pkgdesc="All-in-one voice and text chat for gamers."
 arch=('x86_64')
 url='https://discord.com/'
 license=('custom')
+options=(!strip)
 depends=('libnotify' 'libxss' 'nspr' 'nss' 'gtk3')
 optdepends=('pulseaudio: PulseAudio is a featureful, general-purpose sound server'
             'pulseaudio-qt: PulseAudio QT library for volume controle in QT environment.'
             'xdg-utils: Open files')
 source=("${pkgname}-${pkgver}.tar.gz::https://dl.discordapp.net/apps/linux/${pkgver}/${pkgname}-${pkgver}.tar.gz"
-        "LICENSE-${pkgver}.html::https://discordapp.com/terms"
-        "OSS-LICENSES-${pkgver}.html::https://discordapp.com/licenses")
+        "LICENSE-${pkgver}.html::https://discord.com/terms"
+        "OSS-LICENSES-${pkgver}.html::https://discord.com/licenses")
 sha512sums=('SKIP' 'SKIP' 'SKIP')
-options=(!strip)
 
 prepare() {
   cd "${_pkgname}/"
@@ -30,7 +30,7 @@ package() {
   rm -f "${pkgdir}/opt/${pkgname}/postinst.sh"
 
   install -d "${pkgdir}/usr/bin/"
-  ln -s "/opt/${pkgname}/${_pkgname}" -t "${pkgdir}/usr/bin/"
+  ln -s "/opt/${pkgname}/${_pkgname}" "${pkgdir}/usr/bin/${pkgname}"
 
   install -d "${pkgdir}/usr/share/applications"
   ln -s /opt/${pkgname}/${pkgname}.desktop -t "${pkgdir}/usr/share/applications/"
